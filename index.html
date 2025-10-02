@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Base de Datos de Modelos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  
+
+  <div style="text-align: center; margin-bottom: 30px;">
+    <button id="addModel" class="action-btn">AGREGAR MODELO</button>
+  </div>
+
+  <!-- Tabla de modelos -->
+  <table>
+    <thead>
+      <tr>
+        <th>Foto</th>
+        <th>Estudio</th>
+        <th>Contenido</th>
+        <th>Tráfico</th>
+        <th>Horario</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="modelTableBody"></tbody>
+  </table>
+
+  
+
+  <!-- Contenedor de Novedades y Tareas -->
+  <div class="panel-novedades-tareas">
+    <!-- Caja de Novedades Editable -->
+    <section id="novedades-box">
+      <textarea id="novedades-texto" placeholder="Escribe aquí las novedades..."></textarea>
+    </section>
+
+    <!-- Caja de Tareas -->
+    <section id="tareas-box">
+      <button id="btnNuevaTarea" class="tarea-btn">Nueva tarea</button>
+      <ul id="lista-tareas"></ul>
+    </section>
+  </div>
+
+  <!-- Modal para nueva tarea -->
+  <div id="modalTarea" class="modal">
+    <div class="modal-contenido">
+      <h3>Agregar nueva tarea</h3>
+      <input type="text" id="inputTarea" placeholder="Escribe la tarea aquí">
+      <div class="modal-botones">
+        <button id="btnGuardarTarea" class="action-btn">Guardar</button>
+        <button id="btnCancelarTarea" class="action-btn">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para agregar/editar modelo -->
+  <div id="modalModelo" class="modal">
+    <div class="modal-contenido">
+      <h3 id="modalModeloTitulo">Agregar modelo</h3>
+
+      <input type="text" id="modeloNombre" placeholder="Nombre de la modelo">
+      <input type="text" id="modeloEstudio" placeholder="Estudio">
+
+      <label>Foto:</label>
+      <input type="file" id="modeloFoto" accept="image/*">
+
+      <!-- Contenido dinámico -->
+      <label>Páginas de Contenido:</label>
+      <div class="checkbox-container" style="gap:10px; margin-bottom:10px;">
+        <input type="text" id="inputContenido" placeholder="Ej: OnlyFans, LoyalFans, etc." />
+        <button id="btnAddContenido" class="action-btn" type="button">Agregar</button>
+      </div>
+      <div id="chipsContenido" class="checkbox-container" style="justify-content:flex-start;"></div>
+
+      <!-- Tráfico dinámico -->
+      <label>Páginas de Tráfico:</label>
+      <div class="checkbox-container" style="gap:10px; margin-bottom:10px;">
+        <input type="text" id="inputTrafico" placeholder="Ej: Kams, Redgifs, etc." />
+        <button id="btnAddTrafico" class="action-btn" type="button">Agregar</button>
+      </div>
+      <div id="chipsTrafico" class="checkbox-container" style="justify-content:flex-start;"></div>
+
+      <label>Horario:</label>
+<div id="modeloHorario" class="radio-chip-group">
+  <input type="radio" id="hManana" name="horario" value="Mañana">
+  <label for="hManana" class="chip">Mañana</label>
+
+  <input type="radio" id="hTarde" name="horario" value="Tarde">
+  <label for="hTarde" class="chip">Tarde</label>
+
+  <input type="radio" id="hSatelite" name="horario" value="Satélite">
+  <label for="hSatelite" class="chip">Satélite</label>
+</div>
+
+      <div class="modal-botones">
+        <button id="btnGuardarModelo" class="action-btn">Guardar</button>
+        <button id="btnCancelarModelo" class="action-btn">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal Detalles de Modelo -->
+<div id="modalDetalles" class="modal">
+  <div class="modal-contenido">
+    <span class="close-detalles">&times;</span>
+    <h2 id="detallesTitulo">Detalles de la Modelo</h2>
+
+    <div id="calendar"></div>
+
+    <label for="notas">Notas personales:</label>
+    <textarea id="notas" rows="4" placeholder="Escribe tus notas aquí..."></textarea>
+    <button id="guardarNotas" class="action-btn">Guardar Notas</button>
+  </div>
+</div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
